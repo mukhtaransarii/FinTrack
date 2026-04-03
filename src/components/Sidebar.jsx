@@ -2,11 +2,12 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useApp } from "../context/AppContext";
+import { LayoutDashboard, CreditCard, Lightbulb, Moon, Sun } from "lucide-react";
 
 const links = [
-  { to: "/", label: "Dashboard", icon: "📊" },
-  { to: "/transactions", label: "Transactions", icon: "💳" },
-  { to: "/insights", label: "Insights", icon: "💡" },
+  { to: "/", label: "Dashboard", icon: <LayoutDashboard size={16} /> },
+  { to: "/transactions", label: "Transactions", icon: <CreditCard size={16} /> },
+  { to: "/insights", label: "Insights", icon: <Lightbulb size={16} /> },
 ];
 
 export default function Sidebar() {
@@ -56,7 +57,7 @@ export default function Sidebar() {
               onClick={() => setDarkMode(!darkMode)}
               className="px-3 py-1.5 rounded-lg text-sm border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300"
             >
-              {darkMode ? "☀️" : "🌙"}
+              {darkMode ? <Sun size={16} /> : <Moon size={16} />}
             </button>
           </div>
         </div>
@@ -87,7 +88,7 @@ export default function Sidebar() {
             onClick={() => setDarkMode(!darkMode)}
             className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
           >
-            <span>{darkMode ? "☀️" : "🌙"}</span>
+            <span>{darkMode ? <Sun size={16} /> : <Moon size={16} />}</span>
             {darkMode ? "Light Mode" : "Dark Mode"}
           </button>
 

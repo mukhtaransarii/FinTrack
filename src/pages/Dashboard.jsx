@@ -1,6 +1,7 @@
 // src/pages/Dashboard.jsx
 import { useApp } from "../context/AppContext";
 import SummaryCard from "../components/SummaryCard";
+ import { Wallet, TrendingUp, TrendingDown } from "lucide-react";
 
 function BarChart({ data }) {
   const max = Math.max(...data.map((d) => d.value));
@@ -76,9 +77,9 @@ export default function Dashboard() {
       <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Dashboard</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-        <SummaryCard title="Total Balance" amount={balance} color="text-blue-600" icon="💰" />
-        <SummaryCard title="Total Income" amount={income} color="text-green-600" icon="📈" />
-        <SummaryCard title="Total Expenses" amount={expenses} color="text-red-500" icon="📉" />
+        <SummaryCard title="Total Balance" amount={balance} color="text-blue-600" icon={<Wallet size={20} />} />
+        <SummaryCard title="Total Income" amount={income} color="text-green-600" icon={<TrendingUp size={20} />} />
+        <SummaryCard title="Total Expenses" amount={expenses} color="text-red-500" icon={<TrendingDown size={20} />} />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">

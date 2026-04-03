@@ -1,5 +1,7 @@
 // src/pages/Insights.jsx
 import { useApp } from "../context/AppContext";
+import { Trophy, Calendar, TrendingDown, TrendingUp, PiggyBank, DollarSign } from "lucide-react";
+
 
 export default function Insights() {
   const { transactions } = useApp();
@@ -20,18 +22,18 @@ export default function Insights() {
   const savingsRate = marchIncome > 0 ? (((marchIncome - marchExpenses) / marchIncome) * 100).toFixed(1) : 0;
 
   const insights = [
-    { icon: "🏆", title: "Highest Spending Category", value: topCategory ? `${topCategory[0]} — $${topCategory[1]}` : "No data", color: "bg-orange-50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-800" },
-    { icon: "📅", title: "March Expenses", value: `$${marchExpenses}`, color: "bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800" },
-    { icon: "📅", title: "April Expenses (so far)", value: `$${aprilExpenses}`, color: "bg-purple-50 dark:bg-purple-900/20 border-purple-200 dark:border-purple-800" },
-    {
-      icon: marchExpenses > aprilExpenses ? "📉" : "📈",
-      title: "Month over Month",
-      value: marchExpenses > aprilExpenses ? `Spending down $${marchExpenses - aprilExpenses}` : `Spending up $${aprilExpenses - marchExpenses}`,
-      color: marchExpenses > aprilExpenses ? "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800" : "bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800",
-    },
-    { icon: "💸", title: "March Savings Rate", value: `${savingsRate}%`, color: "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800" },
-    { icon: "💰", title: "April Income (so far)", value: `$${aprilIncome}`, color: "bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800" },
-  ];
+  { icon: <Trophy size={18} />, title: "Highest Spending Category", value: topCategory ? `${topCategory[0]} — $${topCategory[1]}` : "No data", color: "bg-orange-50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-800" },
+  { icon: <Calendar size={18} />, title: "March Expenses", value: `$${marchExpenses}`, color: "bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800" },
+  { icon: <Calendar size={18} />, title: "April Expenses (so far)", value: `$${aprilExpenses}`, color: "bg-purple-50 dark:bg-purple-900/20 border-purple-200 dark:border-purple-800" },
+  {
+    icon: marchExpenses > aprilExpenses ? <TrendingDown size={18} /> : <TrendingUp size={18} />,
+    title: "Month over Month",
+    value: marchExpenses > aprilExpenses ? `Spending down $${marchExpenses - aprilExpenses}` : `Spending up $${aprilExpenses - marchExpenses}`,
+    color: marchExpenses > aprilExpenses ? "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800" : "bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800",
+  },
+  { icon: <PiggyBank size={18} />, title: "March Savings Rate", value: `${savingsRate}%`, color: "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800" },
+  { icon: <DollarSign size={18} />, title: "April Income (so far)", value: `$${aprilIncome}`, color: "bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800" },
+];
 
   return (
     <div className="pt-14 md:pt-0">
