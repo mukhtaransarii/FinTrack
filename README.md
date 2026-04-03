@@ -16,11 +16,11 @@ A simple finance dashboard built for the Zorvyn Frontend Developer Intern assign
 ## Setup
 
 ```bash
-# 1. Create folder structure (Mac/Linux)
-mkdir -p finance-dashboard/src/{context,components,pages,utils}
+# 1. Clone
+git clone https://github.com/mukhtaransarii/FinTrack.git
 
 # 2. Install dependencies
-cd finance-dashboard
+cd FinTrack
 npm install
 
 # 3. Start dev server
