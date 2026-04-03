@@ -42,6 +42,23 @@ export default function Sidebar() {
               {link.label}
             </Link>
           ))}
+
+           <div className="border-t border-gray-100 dark:border-gray-700 pt-2 mt-1 flex items-center justify-between gap-2">
+            <select
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              className="flex-1 border border-gray-200 dark:border-gray-600 rounded-lg px-2 py-1.5 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800"
+            >
+              <option value="viewer">Viewer</option>
+              <option value="admin">Admin</option>
+            </select>
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="px-3 py-1.5 rounded-lg text-sm border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300"
+            >
+              {darkMode ? "☀️" : "🌙"}
+            </button>
+          </div>
         </div>
       )}
 
